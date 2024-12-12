@@ -1,0 +1,28 @@
+<button mat-fab extended class="ml-8">
+  <mat-icon>add</mat-icon>
+  Add Exercise
+</button>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+  @for (exercise of exercises$ | async; track exercise) {
+    <mat-card class="flex flex-col gap-y-4">
+      <mat-card-header class="flex justify-between items-center">
+        <mat-card-title class="flex-grow">{{ exercise.name }}</mat-card-title>
+        <button>
+          <mat-icon class="text-red-500 hover:text-red-700">
+            favorite
+          </mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ exercise.description }}</p>
+      </mat-card-content>
+      <mat-card-footer class="me-auto mt-auto p-4">
+        <mat-chip-set aria-label="exercise details">
+          <mat-chip>{{ exercise.difficulty }}</mat-chip>
+          <mat-chip>{{ exercise.equipment }}</mat-chip>
+          <mat-chip>{{ exercise.muscleGroup }}</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
+  }
+</div>

@@ -1,0 +1,30 @@
+<nav>
+  <div class="mx-auto px-8">
+    <div class="flex justify-between items-center h-24">
+      <button routerLink="/" class="bg-[url('assets/logo-black.png')] h-12 w-28 bg-contain"></button>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex justify-center flex-1">
+        <a routerLink="/" class="py-4 px-8 rounded-s-2xl flex items-center gap-x-2 font-medium"><mat-icon>home</mat-icon>Home</a>
+        <a routerLink="/exercises" class="py-4 px-8 flex items-center gap-x-2 font-medium"><mat-icon>fitness_center</mat-icon>Exercises</a>
+        <a routerLink="/history" class="py-4 px-8 rounded-e-2xl flex items-center gap-x-2 font-medium"><mat-icon>history</mat-icon>History</a>
+      </div>
+      <div class="hidden md:flex ml-auto">
+        <a routerLink="/profile">
+          <mat-icon>person</mat-icon>
+        </a>
+      </div>
+      <div class="md:hidden">
+        <button (click)="toggleMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div *ngIf="isOpen" class="md:hidden">
+    <a routerLink="/" class="block px-4 py-2 text-sm">Home</a>
+    <a routerLink="/exercises" class="block px-4 py-2 text-sm">Exercises</a>
+    <a routerLink="/goals" class="block px-4 py-2 text-sm">Goals</a>
+    <a routerLink="/profile" class="block px-4 py-2 text-sm">Profile</a>
+  </div>
+</nav>
